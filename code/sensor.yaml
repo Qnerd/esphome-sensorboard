@@ -1,0 +1,62 @@
+substitutions:
+  devicename: qnerd-sensor
+esphome:
+  name: $devicename
+
+esp32:
+  board: esp32doit-devkit-v1
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+ota:
+  password: "1234"
+
+mqtt:
+  broker: "octopi"
+
+dallas:
+  - pin: GPIO15
+    update_interval: 20s
+    
+uart:
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 9600
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Battery Fallback Hotspot"
+    password: !secret wifi_fallback_password
+
+captive_portal:
+
+switch:
+  - platform: gpio
+    id: relais
+    pin: GPIO32
+    inverted: no
+    name: relais
+    restore_mode: RESTORE_DEFAULT_OFF
+
+sensor:
+  - platform: wifi_signal
+    name: "Wifi Signal"
+    update_interval: 20s
+    state_topic: $devicename/rssi 
+
+#  - platform: dallas
+#    address: 0xe6b115780e64ff28
+#    name: "temp1"
+#    state_topic: $devicename/temperature/temp1
+
+#  - platform: dallas
+#    address: 0x20faac750e64ff28
+#    name: "temp2"
+#    state_topic: $devicename/temperature/temp2

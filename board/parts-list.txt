@@ -1,0 +1,6 @@
+* ESP32 Devkit Board (https://www.amazon.de/dp/B074RGW2VQ)
+* Transistor 2N3904 (https://www.amazon.de/gp/product/B0BQJ4MQW6)
+* Resistor 4.7 kOhm 
+* Resistor 100 Ohm
+* Temperature-sensor DS18B20 (https://www.amazon.de/gp/product/B01LXQF9B5/)
+* 3x3 & 2x2 Skrew-terinals (https://www.amazon.de/dp/B07Z7NTWXT)
