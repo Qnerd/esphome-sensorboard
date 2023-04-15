@@ -2,18 +2,21 @@ Installation
 ============
 
 1. Change Wifi settings in secrets.yaml
-
-2. firmware flashing with docker image over USB. (Change ttyUSB0 to your devicename. for example ttyACM0):
-	docker run --rm -v "${PWD}":/config --device=/dev/ttyUSB0 -it esphome/esphome run sensor.yaml
+2. firmware flashing with docker image over USB. (Change ttyUSB0 to your devicename. for example ttyACM0)
 
 
-Additional (useful) commands:
-=============================
+    docker run --rm -v "${PWD}":/config --device=/dev/ttyUSB0 -it esphome/esphome run sensor.yaml
 
-logging:
-	docker run --rm --net=host -v "${PWD}":/config -it esphome/esphome
+Additional (useful) commands
+============================
 
-OTA Update:
-#  qnerd-sensor.local must be resolvable via DNS. try to add it to your /etc/hosts with the correct IP
-	docker run --rm --net=host -v "${PWD}":/config -it esphome/esphome run sensor.yaml
+#### Logging:
+    
+    docker run --rm --net=host -v "${PWD}":/config -it esphome/esphome
+
+#### OTA Update
+* qnerd-sensor.local must be resolvable via DNS. try to add it to your /etc/hosts with the correct IP 
+
+   
+    docker run --rm --net=host -v "${PWD}":/config -it esphome/esphome run sensor.yaml
 
